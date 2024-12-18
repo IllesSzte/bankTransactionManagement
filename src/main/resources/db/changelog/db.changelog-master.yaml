@@ -1,0 +1,147 @@
+databaseChangeLog:
+  - changeSet:
+      author: Berci
+      id: 1
+      changes:
+        - createTable:
+            tableName: accounts
+            columns:
+              - column:
+                  name: account_number
+                  type: varchar(24)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: currency
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: balance
+                  type: decimal(15,2)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: transactions
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: account_number
+                  type: varchar(18)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_transactions_accounts
+                    references: accounts(account_number)
+              - column:
+                  name: currency
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amount
+                  type: decimal(15,2)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: exchange_rates
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: base_currency
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: target_currency
+                  type: varchar(3)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: exchange_rate
+                  type: decimal(7,4)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      author: Berci
+      id: 2
+      changes:
+        - insert:
+            tableName: accounts
+            columns:
+              - column: { name: account_number, value: "11111111-22222222" }
+              - column: { name: currency, value: "HUF" }
+              - column: { name: balance, valueNumeric: 150000.00 }
+
+        - insert:
+            tableName: accounts
+            columns:
+              - column: { name: account_number, value: "22222222-33333333" }
+              - column: { name: currency, value: "USD" }
+              - column: { name: balance, valueNumeric: 1230.00 }
+
+        - insert:
+            tableName: transactions
+            columns:
+              - column: { name: account_number, value: "11111111-22222222" }
+              - column: { name: currency, value: "HUF" }
+              - column: { name: amount, valueNumeric: -30000.00 }
+
+        - insert:
+            tableName: transactions
+            columns:
+              - column: { name: account_number, value: "11111111-22222222" }
+              - column: { name: currency, value: "USD" }
+              - column: { name: amount, valueNumeric: -49.99 }
+
+        - insert:
+            tableName: transactions
+            columns:
+              - column: { name: account_number, value: "22222222-33333333" }
+              - column: { name: currency, value: "USD" }
+              - column: { name: amount, valueNumeric: -21.00 }
+
+        - insert:
+            tableName: transactions
+            columns:
+              - column: { name: account_number, value: "22222222-33333333" }
+              - column: { name: currency, value: "HUF" }
+              - column: { name: amount, valueNumeric: 1000.00 }
+
+        - insert:
+            tableName: exchange_rates
+            columns:
+              - column: { name: base_currency, value: "USD" }
+              - column: { name: target_currency, value: "HUF" }
+              - column: { name: exchange_rate, valueNumeric: 500.0000 }
+        - insert:
+            tableName: exchange_rates
+            columns:
+              - column: { name: base_currency, value: "EUR" }
+              - column: { name: target_currency, value: "HUF" }
+              - column: { name: exchange_rate, valueNumeric: 400.0000 }
+        - insert:
+            tableName: exchange_rates
+            columns:
+              - column: { name: base_currency, value: "HUF" }
+              - column: { name: target_currency, value: "USD" }
+              - column: { name: exchange_rate, valueNumeric: 0.0020 }
+        - insert:
+            tableName: exchange_rates
+            columns:
+              - column: { name: base_currency, value: "HUF" }
+              - column: { name: target_currency, value: "EUR" }
+              - column: { name: exchange_rate, valueNumeric: 0.0025 }
