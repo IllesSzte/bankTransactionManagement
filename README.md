@@ -25,5 +25,14 @@ This is a Spring Boot-based application that processes bank card transaction mes
 - A Postman collection is included under `src/main/resources/postman/bank_postman_collection`.
 
 ## API Endpoints:
-1. **POST (http://localhost:9090/bank/update-account)**: Send transaction messages to update the account.
+
+1. **POST (http://localhost:9090/bank/update-account)**: Küldj tranzakciós üzeneteket a számla frissítéséhez.
+   - **Request Parameters**:
+     - `accountNumber` (String): A számlaszám, amelyet frissíteni szeretnél.
+     - `currency` (String): A pénznem, amelyben a tranzakció történik.
+     - `amount` (double): Az összeg, amelyet hozzáadni vagy levonni szeretnél a számláról.
+
+   - **Response**:
+     - **200 OK**: Ha a tranzakció sikeresen végrehajtódott.
+     - **404 Not Found**: Ha a megadott számlaszám nem létezik.
 
