@@ -24,25 +24,4 @@ public class Transaction {
 
     public Transaction() {
     }
-
-    @Override
-    public String toString() {
-        return "Account number: " + accountNumber + ". Currency: " + currency + ". Amount: " + amount;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public LocalDateTime getTransactionTime() {
-        return transactionTime;
-    }
 }
