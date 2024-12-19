@@ -8,8 +8,8 @@ import jakarta.persistence.Table;
 @Table(name = "accounts")
 public class Account {
     @Id
-    private final String accountNumber;
-    private final String currency;
+    private  String accountNumber;
+    private  String currency;
     private double balance;
 
     public Account(String accountNumber, String currency, double balance) {
@@ -28,5 +28,8 @@ public class Account {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public Account() {
     }
 }
