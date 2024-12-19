@@ -9,9 +9,9 @@ import jakarta.persistence.Table;
 public class ExchangeRate {
     @Id
     private int id;
-    private final String baseCurrency;
-    private final String targetCurrency;
-    private final double exchangeRate;
+    private  String baseCurrency;
+    private  String targetCurrency;
+    private  double exchangeRate;
 
     public ExchangeRate(String baseCurrency, String targetCurrency, double exchangeRate) {
         this.baseCurrency = baseCurrency;
@@ -23,4 +23,7 @@ public class ExchangeRate {
         return exchangeRate;
     }
     //TODO: I would add a currency check maybe the given currency is not stored in the db for eg.: LEI, GPT
+
+    public ExchangeRate() {
+    }
 }
