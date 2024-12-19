@@ -1,20 +1,19 @@
 package com.example.bankTransactionManagement.service;
 
-import com.example.bankTransactionManagement.model.Account;
-import com.example.bankTransactionManagement.repository.AccountRepository;
+import com.example.bankTransactionManagement.model.Transaction;
+import com.example.bankTransactionManagement.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.time.LocalDateTime;
 
 @Service
 public class TransactionsService {
     @Autowired
-    AccountRepository accountRepository;
+    TransactionRepository transactionRepository;
 
-    public void findAccountByAccountNumber(String accountNumber){
-        // Maybe account does not exist
-      Optional<Account> account = accountRepository.findByAccountNumber(accountNumber);
-
+    public void saveTransaction(String accountNumber, String currency, double amount) {
+        Transaction transaction = new Transaction(accountNumber, currency, amount, LocalDateTime.now());
+        transactionRepository.save(transaction);
     }
 }

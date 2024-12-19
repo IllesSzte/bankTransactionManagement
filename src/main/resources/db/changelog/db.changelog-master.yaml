@@ -49,6 +49,12 @@ databaseChangeLog:
                   type: decimal(15,2)
                   constraints:
                     nullable: false
+              - column:
+                  name: transaction_time
+                  type: timestamp
+                  constraints:
+                    nullable: false
+                    defaultValueComputed: CURRENT_TIMESTAMP
 
         - createTable:
             tableName: exchange_rates
@@ -92,34 +98,6 @@ databaseChangeLog:
               - column: { name: account_number, value: "22222222-33333333" }
               - column: { name: currency, value: "USD" }
               - column: { name: balance, valueNumeric: 1230.00 }
-
-        - insert:
-            tableName: transactions
-            columns:
-              - column: { name: account_number, value: "11111111-22222222" }
-              - column: { name: currency, value: "HUF" }
-              - column: { name: amount, valueNumeric: -30000.00 }
-
-        - insert:
-            tableName: transactions
-            columns:
-              - column: { name: account_number, value: "11111111-22222222" }
-              - column: { name: currency, value: "USD" }
-              - column: { name: amount, valueNumeric: -49.99 }
-
-        - insert:
-            tableName: transactions
-            columns:
-              - column: { name: account_number, value: "22222222-33333333" }
-              - column: { name: currency, value: "USD" }
-              - column: { name: amount, valueNumeric: -21.00 }
-
-        - insert:
-            tableName: transactions
-            columns:
-              - column: { name: account_number, value: "22222222-33333333" }
-              - column: { name: currency, value: "HUF" }
-              - column: { name: amount, valueNumeric: 1000.00 }
 
         - insert:
             tableName: exchange_rates

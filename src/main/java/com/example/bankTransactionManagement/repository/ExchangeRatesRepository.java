@@ -1,8 +1,8 @@
 package com.example.bankTransactionManagement.repository;
 
-import com.example.bankTransactionManagement.model.ExchangeRates;
+import com.example.bankTransactionManagement.model.ExchangeRate;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ExchangeRatesRepository extends JpaRepository<ExchangeRates, Integer> {
-    ExchangeRates findByBaseCurrencyAndTargetCurrency(String baseCurrency, String targetCurrency);
+public interface ExchangeRatesRepository extends JpaRepository<ExchangeRate, Integer> {
+    ExchangeRate findByBaseCurrencyAndTargetCurrency(String baseCurrency, String targetCurrency);
 }

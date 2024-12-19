@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "867f7814-cefb-49d1-87fe-71f9ea152c61",
+		"name": "Bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33303498"
+	},
+	"item": [
+		{
+			"name": "update-account",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/bank/update-account?accountNumber=11111111-22222222&currency=HUF&amount=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"bank",
+						"update-account"
+					],
+					"query": [
+						{
+							"key": "accountNumber",
+							"value": "11111111-22222222"
+						},
+						{
+							"key": "currency",
+							"value": "HUF"
+						},
+						{
+							"key": "amount",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
