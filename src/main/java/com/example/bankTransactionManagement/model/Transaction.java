@@ -1,10 +1,6 @@
 package com.example.bankTransactionManagement.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -13,15 +9,17 @@ import java.time.LocalDateTime;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-    String accountNumber;
-    String currency;
-    double amount;
+    private int id;
+    private String accountNumber;
+    private String currency;
+    private double amount;
+    private LocalDateTime transactionTime;
 
-    public Transaction(String accountNumber, String currency, double amount) {
+    public Transaction(String accountNumber, String currency, double amount, LocalDateTime time) {
         this.accountNumber = accountNumber;
         this.currency = currency;
         this.amount = amount;
+        this.transactionTime = time;
     }
 
     public Transaction() {
@@ -42,5 +40,9 @@ public class Transaction {
 
     public double getAmount() {
         return amount;
+    }
+
+    public LocalDateTime getTransactionTime() {
+        return transactionTime;
     }
 }
