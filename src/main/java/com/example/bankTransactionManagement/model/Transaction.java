@@ -24,4 +24,9 @@ public class Transaction {
 
     public Transaction() {
     }
+
+    @Override
+    public String toString() {
+        return "Account number: " + accountNumber + ". Currency: " + currency + ". Amount: " + amount;
+    }
 }
