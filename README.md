@@ -8,12 +8,14 @@ This is a Spring Boot-based application that processes bank card transaction mes
 
 ## How to Run:
 1. Clone the repository.
-2. Build the project using Maven:
+   ```bash
+   git clone https://github.com/IllesSzte/bankTransactionManagement.git
+3. Build the project using Maven:
    ```bash
    mvn clean package
-3. Run the application:
-4.  ```bash
-     java -jar target/bankTransactionManagement-0.0.1-SNAPSHOT.jar
+4. Run the application:
+   ```bash
+   java -jar target/bankTransactionManagement-0.0.1-SNAPSHOT.jar
 
 ## Database Setup:
 - The application uses Liquibase to manage database schema updates automatically.
